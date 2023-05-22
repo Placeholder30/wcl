@@ -1,0 +1,2 @@
+# wcl
+unix wc lite
