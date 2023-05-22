@@ -8,9 +8,9 @@ import (
 )
 
 func File(args []string) {
-	var twc, tcc, tlc, fc int
+	var totalwc, totalcc, totallc, filec int
 	for _, fileName := range args {
-		var lc, wc, cc int
+		var linec, wordc, characterc int
 		file, err := os.Open(fileName)
 		if err != nil {
 			fmt.Fprint(os.Stderr, err)
@@ -19,25 +19,25 @@ func File(args []string) {
 		scan := bufio.NewScanner(file)
 		for scan.Scan() {
 			s := scan.Text()
-			wc += len(strings.Fields(s))
-			twc += wc
-			cc += len(s)
-			tcc += cc
-			lc++
-			tlc += lc
+			wordc += len(strings.Fields(s))
+			totalwc += wordc
+			characterc += len(s)
+			totalcc += characterc
+			linec++
+			totallc += linec
 		}
 		var lines string
-		if lc > 1 {
+		if linec > 1 {
 			lines = "lines"
 		} else {
 			lines = "line"
 		}
-		fmt.Printf("there are %v words, %v characters and %v %v in %v\n", wc, cc, lc, lines, fileName)
-		fc++
+		fmt.Printf("there are %v words, %v characters and %v %v in %v\n", wordc, characterc, linec, lines, fileName)
+		filec++
 		file.Close()
 	}
-	if fc > 1 {
-		fmt.Printf("total: %v words, %v characters and %v lines\n ", twc, tcc, tlc)
+	if filec > 1 {
+		fmt.Printf("total: %v words, %v characters and %v lines\n ", totalwc, totalcc, totallc)
 	}
 
 }
