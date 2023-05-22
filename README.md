@@ -1,2 +1,2 @@
 # wcl
-unix wc lite like really lite
+unix wc lite, like really lite
