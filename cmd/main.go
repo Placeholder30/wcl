@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"wcl/pkg/file"
+
+	"github.com/placeholder30/wcl/pkg/file"
 )
 
 func main() {
