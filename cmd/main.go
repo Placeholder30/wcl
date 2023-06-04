@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/placeholder30/wcl/pkg/file"
+	"github.com/placeholder30/wcl/pkg/utils"
 )
 
 func main() {
@@ -23,6 +23,6 @@ func main() {
 		fmt.Println("pass me a file or files as args and i'll tell you some stuff about it.")
 		os.Exit(1)
 	}
-	file.File(os.Args[1:])
+	utils.File(os.Args[1:])
 	os.Exit(0)
 }
