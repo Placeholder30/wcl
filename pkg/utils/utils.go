@@ -12,9 +12,17 @@ func File(args []string) {
 	for _, fileName := range args {
 		var linec, wordc, characterc int
 		file, err := os.Open(fileName)
+
 		if err != nil {
-			fmt.Fprint(os.Stderr, err)
-			continue
+			panic(err)
+		}
+		if fileInfo, err := os.Stat(fileName); err != nil {
+			panic(err)
+		} else {
+			if fileInfo.IsDir() {
+				fmt.Println("That's not a file!")
+				os.Exit(2)
+			}
 		}
 		scan := bufio.NewScanner(file)
 		for scan.Scan() {
